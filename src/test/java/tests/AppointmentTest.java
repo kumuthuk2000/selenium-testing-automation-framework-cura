@@ -1,0 +1,26 @@
+package tests;
+
+import base.BaseTest;
+import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import pages.AppointmentPage;
+import pages.LoginPage;
+
+public class AppointmentTest extends BaseTest {
+
+    @Test
+    public void validAppointmentTest(){
+        driver.findElement(By.id("btn-make-appointment")).click();
+
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("John Doe", "ThisIsNotAPassword");
+
+        Assert.assertTrue(driver.getCurrentUrl().contains("appointment"));
+            AppointmentPage appointment = new AppointmentPage(driver);
+            appointment.makeAppointment("Tokyo CURA Healthcare Center", true, "None","06/11/2026","the appointment booked via selenium automation");
+            appointment.bookApointment();
+            Assert.assertTrue(driver.getCurrentUrl().contains("appointment"), "URL does not contain 'appointment'");
+
+    }
+}
