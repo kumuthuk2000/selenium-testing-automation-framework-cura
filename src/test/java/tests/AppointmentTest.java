@@ -18,7 +18,7 @@ public class AppointmentTest extends BaseTest {
 
         Assert.assertTrue(driver.getCurrentUrl().contains("appointment"));
             AppointmentPage appointment = new AppointmentPage(driver);
-            appointment.makeAppointment("Tokyo CURA Healthcare Center", true, "None","06/11/2026","the appointment booked via selenium automation");
+            appointment.makeAppointment("Tokyo CURA Healthcare Center", true, "None","06/11/2026");
             appointment.bookApointment();
             Assert.assertTrue(driver.getCurrentUrl().contains("appointment"), "URL does not contain 'appointment'");
 

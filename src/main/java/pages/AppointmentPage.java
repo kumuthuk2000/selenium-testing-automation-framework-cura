@@ -15,14 +15,14 @@ public class AppointmentPage {
         this.driver = driver;
     }
 
-    public void makeAppointment(String facility, boolean tick, String programe, String date, String cmnt){
+    public void makeAppointment(String facility, boolean tick, String programe, String date){
         selectFacility(facility);
         if(tick){
             checkBox();
         }
         healthCareProgramme(programe);
         selectdate(date);
-        comment(cmnt);
+//        comment(cmnt);
 
     }
     public void selectFacility(String facility){
@@ -57,7 +57,7 @@ public class AppointmentPage {
     }
 
     public void comment(String comment){
-        driver.findElement(By.id("txt_comment")).sendKeys("comment");
+        driver.findElement(By.id("txt_comment")).sendKeys(comment);
     }
 
 
