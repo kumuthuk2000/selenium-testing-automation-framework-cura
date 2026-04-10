@@ -15,16 +15,16 @@ public class AppointmentPage {
         this.driver = driver;
     }
 
-    public void makeAppointment(String facility, boolean tick, String programe, String date){
+    public void makeAppointment(String facility, boolean tick, String programe, String date, String com){
         selectFacility(facility);
         if(tick){
             checkBox();
         }
         healthCareProgramme(programe);
         selectdate(date);
-//        comment(cmnt);
-
+        comment(com);
     }
+
     public void selectFacility(String facility){
         Select select = new Select(driver.findElement(By.id("combo_facility")));
         select.selectByVisibleText(facility);
@@ -50,14 +50,15 @@ public class AppointmentPage {
     }
 
     public void selectdate (String date){
-        driver.findElement(By.id("txt_visit_date")).sendKeys("date");
+//        driver.findElement(By.id("txt_visit_date")).clear();
+        driver.findElement(By.id("txt_visit_date")).sendKeys(date);
     }
     public void bookApointment (){
         driver.findElement(By.id("btn-book-appointment")).click();
     }
 
-    public void comment(String comment){
-        driver.findElement(By.id("txt_comment")).sendKeys(comment);
+    public void comment(String com){
+        driver.findElement(By.id("txt_comment")).sendKeys(com);
     }
 
 
