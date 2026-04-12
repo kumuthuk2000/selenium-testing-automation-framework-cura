@@ -13,9 +13,10 @@ This project contains automated test cases for the Cura Healthcare demo website 
 
 ##  Test Scenarios
 
-* Login with valid credentials
-* Appointment booking
-* Log out
+* Login with valid credentials (Positive testing)
+* Login with invalid/empty credentials (Negative testing)
+* Appointment booking workflow with different test cases
+* Logout functionality
 
 ##  How to Run
 
@@ -32,6 +33,7 @@ mvn test
 * `base` – WebDriver setup
 * `pages` – Page Object Model classes
 * `tests` – Test cases
+* `utils`
 
 ##  Application Under Test
 
